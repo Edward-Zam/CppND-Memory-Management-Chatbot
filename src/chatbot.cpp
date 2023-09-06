@@ -45,6 +45,82 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
+// 1. Copy Constructor
+ChatBot::ChatBot(const ChatBot &obj)
+{
+    std::cout << "ChatBot Copy Constructor\n";
+
+    // Copy data handles
+    _chatLogic = obj._chatLogic;
+    _rootNode = obj._rootNode;
+
+    // Copy image (move)
+    _image = new wxBitmap(*obj._image);
+}
+
+// 2. Copy Assignment Operator
+ChatBot &ChatBot::operator=(const ChatBot &obj)
+{
+    std::cout << "ChatBot Assignment Operator\n";
+
+    //boiler plate
+    if( this == &obj )
+    {
+        return *this;
+    }
+
+    // TODO: is this needed?
+    // delete _image;
+    // Copy data handles
+    _chatLogic = obj._chatLogic;
+    _rootNode = obj._rootNode;
+
+    // Copy image (move)
+    _image = new wxBitmap(*obj._image);
+
+    return *this;
+}
+// 3. Destructor (already above)
+// 4. Move Constructor
+ChatBot::ChatBot(ChatBot &&obj)
+{
+    std::cout << "ChatBot Move Constructor\n";
+    // Move data handles
+    _chatLogic = obj._chatLogic;
+    _rootNode = obj._rootNode;
+    obj._chatLogic = nullptr;
+    obj._rootNode = nullptr;
+
+    // Move image
+    _image = obj._image;
+    obj._image = nullptr;
+
+}
+// 5. Move Assignment Operator
+ChatBot &ChatBot::operator=(ChatBot &&obj)
+{
+    std::cout << "ChatBot Move Assignment Operator\n";
+    //boiler plate
+    if( this == &obj )
+    {
+        return *this;
+    }
+
+    // TODO: Is this needed?
+    // delete _image;
+    // Move data handles
+    _chatLogic = obj._chatLogic;
+    _rootNode = obj._rootNode;
+    obj._chatLogic = nullptr;
+    obj._rootNode = nullptr;
+
+    // Move image
+    _image = obj._image;
+    obj._image = nullptr;
+
+    return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 

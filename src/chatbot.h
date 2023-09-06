@@ -28,7 +28,16 @@ public:
     ~ChatBot();
 
     //// STUDENT CODE
-    ////
+    //// The rule of 5 states that if a type needs one of the following, then it must need all five:
+    // 1. Copy Constructor
+    ChatBot(const ChatBot &obj);
+    // 2. Copy Assignment Operator
+    ChatBot &operator=(const ChatBot &obj);
+    // 3. Destructor (already above)
+    // 4. Move Constructor
+    ChatBot(ChatBot &&obj);
+    // 5. Move Assignement Operator
+    ChatBot &operator=(ChatBot &&obj);
 
     ////
     //// EOF STUDENT CODE
