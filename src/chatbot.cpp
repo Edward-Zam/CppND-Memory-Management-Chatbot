@@ -69,8 +69,6 @@ ChatBot &ChatBot::operator=(const ChatBot &obj)
         return *this;
     }
 
-    // TODO: is this needed?
-    // delete _image;
     // Copy data handles
     _chatLogic = obj._chatLogic;
     _rootNode = obj._rootNode;
@@ -106,8 +104,6 @@ ChatBot &ChatBot::operator=(ChatBot &&obj)
         return *this;
     }
 
-    // TODO: Is this needed?
-    // delete _image;
     // Move data handles
     _chatLogic = obj._chatLogic;
     _rootNode = obj._rootNode;

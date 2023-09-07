@@ -25,7 +25,7 @@ public:
     // constructors / destructors
     ChatBot();                     // constructor WITHOUT memory allocation
     ChatBot(std::string filename); // constructor WITH memory allocation
-    ~ChatBot();
+    ~ChatBot(); // destructor
 
     //// STUDENT CODE
     //// The rule of 5 states that if a type needs one of the following, then it must need all five:
